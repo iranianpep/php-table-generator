@@ -149,19 +149,19 @@
             if ($head !== '' && ($head instanceof Head))
                 $html .= $head->getHtml();
 
+			// get footer
+            $footer = $this->getFooter();
+
+            // get footer html
+            if ($footer !== '' && ($footer instanceof Footer))
+                $html .= $footer->getHtml();
+
             // get body
             $body = $this->getBody();
 
             // get body html
             if ($body !== '' && ($body instanceof Body))
                 $html .= $body->getHtml();
-
-            // get footer
-            $footer = $this->getFooter();
-
-            // get footer html
-            if ($footer !== '' && ($footer instanceof Footer))
-                $html .= $footer->getHtml();
 
             $html .= '</table>';
 
