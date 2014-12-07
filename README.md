@@ -6,4 +6,4 @@ PHP Table Generator is a tool that is simply used to generate HTML tables withou
 Documentation
 ===================
 
-<a href="http://keepcoding.ehsanabbasi.com/php/php-table-generator/">Keep Coding Blog</a>.
+<a href="http://keepcoding.ehsanabbasi.com/php/php-table-generator/">Keep Coding Blog</a> | <a href="http://keepcoding.ehsanabbasi.com/phpTableGenerator/doc/">phpDoc generated documentation</a>.
