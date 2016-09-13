@@ -3,7 +3,7 @@
 require_once('../classes/tableGenerator.class.php');
 
 /**
- * it's not recommended to embed css. But for the sake of demo, it's fine
+ * it's not recommended to embed css. But for the sake of demo, it's fine.
  */
 $css =<<<EOF
 <style>
