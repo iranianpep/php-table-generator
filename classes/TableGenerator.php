@@ -7,7 +7,7 @@
         exit('Direct access to ' . __FILE__ . ' not permitted.');
 
     // Include all the required files
-    $files = array('body', 'cell', 'footer', 'head', 'row', 'table', 'tableException', 'caption');
+    $files = ['body', 'cell', 'footer', 'head', 'row', 'table', 'tableException', 'caption'];
     foreach ($files as $file) {
         require_once($file . '.class.php');
     }
@@ -112,7 +112,7 @@
          */
         public function getAllAttributesHtml()
         {
-            $attributes = array('class', 'id', 'style', 'data');
+            $attributes = ['class', 'id', 'style', 'data'];
 
             $allAttributesHtml = '';
 

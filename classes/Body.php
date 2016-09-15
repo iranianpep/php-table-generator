@@ -20,7 +20,7 @@ class Body extends TableGenerator
      *
      * @param array $rows
      */
-    public function __construct(array $rows = array())
+    public function __construct(array $rows = [])
     {
         $this->addRows($rows);
     }
@@ -46,20 +46,18 @@ class Body extends TableGenerator
     public function addRow(Row $row, $index = -1)
     {
         try {
-            if (is_numeric($index) && ($row instanceof Row)) {
+            if (is_numeric($index) && $row instanceof Row) {
                 $rows = $this->rows;
 
                 if ($index === -1) {
                     // add to the end of the rows array
                     $rows[] = $row;
-
                 } else {
                     // insert the item in
                     array_splice($rows, $index, 0, array($row));
                 }
 
                 $this->rows = $rows;
-
             } else {
                 throw new TableException('index in addRow() must be numeric');
             }
@@ -71,7 +69,7 @@ class Body extends TableGenerator
     /**
      * return rows for body
      *
-     * @return mixed
+     * @return array
      */
     public function getRows()
     {
@@ -93,7 +91,7 @@ class Body extends TableGenerator
         $rows = $this->rows;
 
         foreach ($rows as $row) {
-            if ($row !== '' && ($row instanceof Row)) {
+            if ($row !== '' && $row instanceof Row) {
                 $html .= $row->getHtml();
             }
         }

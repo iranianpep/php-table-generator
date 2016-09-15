@@ -38,7 +38,7 @@ class Head extends TableGenerator
     /**
      * return row for a head
      *
-     * @return mixed
+     * @return Row
      */
     public function getRow()
     {
@@ -59,8 +59,7 @@ class Head extends TableGenerator
         // get row
         $row = $this->row;
 
-        if ($row !== '' && ($row instanceof Row)) {
-            //$html .= $row->getHtml('head');
+        if ($row !== '' && $row instanceof Row) {
             $html .= $row->getHtml();
         }
 

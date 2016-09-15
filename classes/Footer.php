@@ -39,7 +39,7 @@ class Footer extends TableGenerator
     /**
      * return row for a footer
      *
-     * @return mixed
+     * @return Row
      */
     public function getRow()
     {
@@ -60,7 +60,7 @@ class Footer extends TableGenerator
         // get row
         $row = $this->row;
 
-        if ($row !== '' && ($row instanceof Row)) {
+        if ($row !== '' && $row instanceof Row) {
             $html .= $row->getHtml();
         }
 

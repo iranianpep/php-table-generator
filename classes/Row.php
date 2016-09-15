@@ -1,9 +1,7 @@
 <?php
-
-    /**
-     * Contains TableGenerator class
-     */
-
+/**
+* Contains TableGenerator class
+*/
 
 /**
  * Class TableGenerator
@@ -77,7 +75,7 @@ abstract class TableGenerator
      */
     public function getAllAttributesHtml()
     {
-        $attributes = array('class', 'id', 'style', 'data');
+        $attributes = ['class', 'id', 'style', 'data'];
 
         $allAttributesHtml = '';
 

@@ -65,8 +65,8 @@ class Cell extends TableGenerator
     public function addRowspan($rowspan)
     {
         try {
-            if (isset($rowspan) && is_numeric($rowspan) && $rowspan > 0) {
-                $this->rowspan = $rowspan;
+            if (isset($rowspan) && (int) $rowspan > 0) {
+                $this->rowspan = (int) $rowspan;
             } else {
                 throw new TableException('rowspan in addRowspan() must be numeric and greater than zero');
             }
@@ -83,8 +83,8 @@ class Cell extends TableGenerator
     public function addColspan($colspan)
     {
         try {
-            if (isset($colspan) && is_numeric($colspan) && $colspan > 0) {
-                $this->colspan = $colspan;
+            if (isset($colspan) && (int) $colspan > 0) {
+                $this->colspan = (int) $colspan;
             } else {
                 throw new TableException('colspan in addColspan() must be numeric and greater than zero');
             }
@@ -127,7 +127,7 @@ class Cell extends TableGenerator
     /**
      * return rowspan for a cell
      *
-     * @return mixed
+     * @return int
      */
     public function getRowspan()
     {
@@ -137,7 +137,7 @@ class Cell extends TableGenerator
     /**
      * return colspan for a cell
      *
-     * @return mixed
+     * @return int
      */
     public function getColspan()
     {

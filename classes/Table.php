@@ -139,28 +139,28 @@
             $caption = $this->getCaption();
 
             // get caption html
-            if ($caption !== '' && ($caption instanceof Caption))
+            if ($caption !== '' && $caption instanceof Caption)
                 $html .= $caption->getHtml();
 
             // get head
             $head = $this->getHead();
 
             // get head html
-            if ($head !== '' && ($head instanceof Head))
+            if ($head !== '' && $head instanceof Head)
                 $html .= $head->getHtml();
 
 			// get footer
             $footer = $this->getFooter();
 
             // get footer html
-            if ($footer !== '' && ($footer instanceof Footer))
+            if ($footer !== '' && $footer instanceof Footer)
                 $html .= $footer->getHtml();
 
             // get body
             $body = $this->getBody();
 
             // get body html
-            if ($body !== '' && ($body instanceof Body))
+            if ($body !== '' && $body instanceof Body)
                 $html .= $body->getHtml();
 
             $html .= '</table>';
