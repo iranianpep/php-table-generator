@@ -1,7 +1,14 @@
 <?php
+
 /**
-* Contains TableGenerator class
-*/
+ * Contains TableGenerator class
+ */
+
+namespace TableGenerator;
+
+if (count(get_included_files()) === 1) {
+    exit('Direct access is not permitted.');
+}
 
 /**
  * Class TableGenerator
@@ -37,13 +44,6 @@ abstract class TableGenerator
     private $data;
 
     /**
-     * settings
-     *
-     * @var array $settings
-     */
-    public $settings;
-
-    /**
      * initialize a TableGenerator object
      *
      * @param string $class
@@ -60,30 +60,21 @@ abstract class TableGenerator
     /**
      * add data to an element
      *
-     * @param $key
-     * @param $value
+     * @param array $data
      */
-    public function addData($key, $value)
+    public function addData(array $data)
     {
-        $this->data[] = [$key, $value];
+        $this->data[] = $data;
     }
 
     /**
-     * get html for all the attributes assigned to a an element
+     * get data from an element
      *
-     * @return string
+     * @return mixed
      */
-    public function getAllAttributesHtml()
+    public function getData()
     {
-        $attributes = ['class', 'id', 'style', 'data'];
-
-        $allAttributesHtml = '';
-
-        foreach ($attributes as $attribute) {
-            $allAttributesHtml .= $this->getAttributeHtml($attribute);
-        }
-
-        return $allAttributesHtml;
+        return $this->data;
     }
 
     /**
@@ -102,23 +93,37 @@ abstract class TableGenerator
                     $allDataAttributes = '';
 
                     foreach ($allData as $data) {
-                        $allDataAttributes .= "data-{$data[0]}={$data[1]} ";
+                        $allDataAttributes .= " data-{$data[0]}={$data[1]}";
                     }
 
                     return $allDataAttributes;
                 default:
-                    return "{$attribute}='{$this->$attribute}'";
+                    return " {$attribute}='{$this->$attribute}'";
             }
+        } else {
+            return '';
         }
     }
 
     /**
-     * get data from an element
+     * get html for all the attributes assigned to a an element
      *
-     * @return mixed
+     * @return string
      */
-    public function getData()
+    public function getAllAttributesHtml()
     {
-        return $this->data;
+        $attributes = ['class', 'id', 'style', 'data'];
+
+        $allAttributesHtml = '';
+        foreach ($attributes as $attribute) {
+            $allAttributesHtml .= $this->getAttributeHtml($attribute);
+        }
+
+        return $allAttributesHtml;
     }
+
+    /**
+     * @return string
+     */
+    abstract public function getHtml();
 }

@@ -3,6 +3,12 @@
  * Contains Head Cell class
  */
 
+namespace TableGenerator;
+
+if (count(get_included_files()) === 1) {
+    exit('Direct access to not permitted.');
+}
+
 /**
  * Class Cell
  */
@@ -42,7 +48,20 @@ class HeadCell extends Cell
      */
     private $searchPattern;
 
+    /**
+     * @var
+     */
     private $selectAllSelector;
+
+    /**
+     * @var
+     */
+    private $sortBy;
+
+    /**
+     * @var
+     */
+    private $sortDir;
 
     public function __construct($title = null, $alias = null, $content = null, $htmlspecialchars = false)
     {
@@ -161,6 +180,38 @@ class HeadCell extends Cell
         $this->selectAllSelector = $selectAllSelector;
     }
 
+    /**
+     * @return string
+     */
+    public function getSortBy()
+    {
+        return $this->sortBy;
+    }
+
+    /**
+     * @param string $sortBy
+     */
+    public function setSortBy($sortBy)
+    {
+        $this->sortBy = $sortBy === 'asc' ? 'asc' : 'desc';
+    }
+
+    /**
+     * @return string
+     */
+    public function getSortDir()
+    {
+        return $this->sortDir;
+    }
+
+    /**
+     * @param string $sortDir
+     */
+    public function setSortDir($sortDir)
+    {
+        $this->sortDir = $sortDir;
+    }
+
     public function getContent()
     {
         // if content is not null return the content
@@ -170,7 +221,8 @@ class HeadCell extends Cell
 
         $title = $this->getTitle();
 
-        $checkboxHtml = ($this->isSelectable() === true) ? "<input type='checkbox' onclick=\"checkAllByCheckbox(this, '{$this->selectAllSelector}');\">" : '';
+        $checkboxHtml = $this->isSelectable() === true ?
+            "<input type='checkbox' onclick=\"checkAllByCheckbox(this, '{$this->selectAllSelector}');\">" : '';
 
         // if head cell is not sortable only return title as the content
         if ($this->isSortable() === false) {
@@ -179,12 +231,15 @@ class HeadCell extends Cell
 
         $alias = $this->getAlias();
 
-        $listConfig = Registry::getConfigClass()->get('list');
-        $request = new Request();
-        $sortBy = $request->getQueryStringVariables($listConfig['orderBy']);
-        $sortDir = $request->getQueryStringVariables($listConfig['orderDir']);
+        $sortBy = $this->getSortBy();
+        $sortDir = $this->getSortBy();
 
-        $newSortDir = ($alias == $sortBy && $sortDir == 'asc') ? 'desc' : 'asc';
-        return "{$checkboxHtml} <a style='cursor: pointer;' onclick='sort(\"{$listConfig['orderBy']}\", \"{$alias}\", \"{$listConfig['orderDir']}\", \"{$newSortDir}\");'>{$title}</a>";
+        if ($alias ===  $sortBy && $sortDir === 'asc') {
+            $newSortDir = 'desc';
+        } else {
+            $newSortDir = 'asc';
+        }
+
+        return "{$checkboxHtml} <a style='cursor: pointer;' onclick='sort(\"{$sortBy}\", \"{$alias}\", \"{$sortDir}\", \"{$newSortDir}\");'>{$title}</a>";
     }
 }

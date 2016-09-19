@@ -1,6 +1,11 @@
 <?php
+    require '../vendor/autoload.php';
 
-require_once('../classes/tableGenerator.class.php');
+    use TableGenerator\Body;
+    use TableGenerator\Cell;
+    use TableGenerator\Head;
+    use TableGenerator\Row;
+    use TableGenerator\Table;
 
 /**
  * it's not recommended to embed css. But for the sake of demo, it's fine.

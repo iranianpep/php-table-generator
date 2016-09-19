@@ -3,6 +3,12 @@
  * Contains Cell class
  */
 
+namespace TableGenerator;
+
+if (count(get_included_files()) === 1) {
+    exit('Direct access to not permitted.');
+}
+
 /**
  * Class Cell
  */
@@ -54,7 +60,7 @@ class Cell extends TableGenerator
         $content = $htmlspecialchars === true ? htmlspecialchars($content, ENT_QUOTES) : $content;
         $this->setContent($content);
 
-        $this->scopeWhiteList = array('col', 'row', 'colgroup', 'rowgroup');
+        $this->scopeWhiteList = ['col', 'row', 'colgroup', 'rowgroup'];
     }
 
     /**
@@ -158,5 +164,13 @@ class Cell extends TableGenerator
     public function setContent($content)
     {
         $this->content = $content;
+    }
+
+    /**
+     * Alias for getContent()
+     */
+    public function getHtml()
+    {
+        $this->getContent();
     }
 }

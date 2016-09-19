@@ -3,6 +3,12 @@
  * Contains Head class
  */
 
+namespace TableGenerator;
+
+if (count(get_included_files()) === 1) {
+    exit('Direct access to not permitted.');
+}
+
 /**
  * Class Head
  */
@@ -54,7 +60,7 @@ class Head extends TableGenerator
     {
         $attributesHtml = $this->getAllAttributesHtml();
 
-        $html = "<thead {$attributesHtml}>";
+        $html = "<thead{$attributesHtml}>";
 
         // get row
         $row = $this->row;

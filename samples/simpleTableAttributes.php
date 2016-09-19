@@ -1,6 +1,12 @@
 <?php
 
-require_once('../classes/tableGenerator.class.php');
+    use TableGenerator\Body;
+    use TableGenerator\Cell;
+    use TableGenerator\Head;
+    use TableGenerator\Row;
+    use TableGenerator\Table;
+
+    require '../vendor/autoload.php';
 
 $css =<<<EOF
 <style>

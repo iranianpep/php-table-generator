@@ -3,6 +3,12 @@
  * Contains Body class
  */
 
+namespace TableGenerator;
+
+if (count(get_included_files()) === 1) {
+    exit('Direct access to not permitted.');
+}
+
 /**
  * Class Body
  */
@@ -85,7 +91,7 @@ class Body extends TableGenerator
     {
         $attributesHtml = $this->getAllAttributesHtml();
 
-        $html = "<tbody {$attributesHtml}>";
+        $html = "<tbody{$attributesHtml}>";
 
         // get rows
         $rows = $this->rows;

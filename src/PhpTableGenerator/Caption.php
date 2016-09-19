@@ -3,6 +3,12 @@
  * Contains Caption class
  */
 
+namespace TableGenerator;
+
+if (count(get_included_files()) === 1) {
+    exit('Direct access to not permitted.');
+}
+
 /**
  * Class Caption
  */
@@ -34,8 +40,6 @@ class Caption extends TableGenerator
     {
         $attributesHtml = $this->getAllAttributesHtml();
 
-        $html = "<caption {$attributesHtml}>{$this->content}</caption>";
-
-        return $html;
+        return "<caption{$attributesHtml}>{$this->content}</caption>";
     }
 }

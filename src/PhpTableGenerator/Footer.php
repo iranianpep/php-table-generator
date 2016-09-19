@@ -3,6 +3,12 @@
  * Contains Footer class
  */
 
+namespace TableGenerator;
+
+if (count(get_included_files()) === 1) {
+    exit('Direct access to not permitted.');
+}
+
 /**
  * Class Footer
  */
@@ -55,7 +61,7 @@ class Footer extends TableGenerator
     {
         $attributesHtml = $this->getAllAttributesHtml();
 
-        $html = "<tfoot {$attributesHtml}>";
+        $html = "<tfoot{$attributesHtml}>";
 
         // get row
         $row = $this->row;
