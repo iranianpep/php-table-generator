@@ -232,7 +232,7 @@ class HeadCell extends Cell
         $alias = $this->getAlias();
 
         $sortBy = $this->getSortBy();
-        $sortDir = $this->getSortBy();
+        $sortDir = $this->getSortDir();
 
         if ($alias ===  $sortBy && $sortDir === 'asc') {
             $newSortDir = 'desc';
