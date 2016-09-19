@@ -92,8 +92,10 @@ abstract class TableGenerator
                     $allData = $this->getData();
                     $allDataAttributes = '';
 
-                    foreach ($allData as $data) {
-                        $allDataAttributes .= " data-{$data[0]}={$data[1]}";
+                    if (!empty($allData)) {
+                        foreach ($allData as $data) {
+                            $allDataAttributes .= " data-{$data[0]}={$data[1]}";
+                        }
                     }
 
                     return $allDataAttributes;
