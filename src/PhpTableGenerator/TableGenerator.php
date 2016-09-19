@@ -94,7 +94,9 @@ abstract class TableGenerator
 
                     if (!empty($allData)) {
                         foreach ($allData as $data) {
-                            $allDataAttributes .= " data-{$data[0]}={$data[1]}";
+                            if (isset($data[0]) && $data[1]) {
+                                $allDataAttributes .= " data-{$data[0]}={$data[1]}";
+                            }
                         }
                     }
 
