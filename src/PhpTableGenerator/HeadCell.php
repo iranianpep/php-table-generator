@@ -193,7 +193,7 @@ class HeadCell extends Cell
      */
     public function setSortBy($sortBy)
     {
-        $this->sortBy = $sortBy === 'asc' ? 'asc' : 'desc';
+        $this->sortBy = $sortBy;
     }
 
     /**
@@ -209,7 +209,7 @@ class HeadCell extends Cell
      */
     public function setSortDir($sortDir)
     {
-        $this->sortDir = $sortDir;
+        $this->sortDir = $sortDir === 'asc' ? 'asc' : 'desc';
     }
 
     public function getContent()
