@@ -205,11 +205,26 @@ class HeadCell extends Cell
     }
 
     /**
-     * @param string $sortDir
+     * @param $sortDir
      */
     public function setSortDir($sortDir)
     {
-        $this->sortDir = $sortDir === 'asc' ? 'asc' : 'desc';
+        $this->sortDir = (strtolower($sortDir) === 'asc') ? 'asc' : 'desc';
+    }
+
+    /**
+     * According the current sorting direction, alias, and etc return
+     * the next sorting direction
+     *
+     * @return string
+     */
+    public function getNewSortDir()
+    {
+        $alias = $this->getAlias();
+        $sortBy = $this->getSortBy();
+        $sortDir = $this->getSortDir();
+
+        return ($alias ===  $sortBy && $sortDir === 'asc') ? 'desc' : 'asc';
     }
 
     /**
@@ -238,9 +253,8 @@ class HeadCell extends Cell
 
         $alias = $this->getAlias();
         $sortBy = $this->getSortBy();
-        $sortDir = $this->getSortDir();
-
-        $newSortDir = ($alias ===  $sortBy && $sortDir === 'asc') ? 'desc' : 'asc';
+        
+        $newSortDir = $this->getNewSortDir();
 
         $sortFunction = $config->getConfig('sorterJSFunction');
 
