@@ -212,6 +212,10 @@ class HeadCell extends Cell
         $this->sortDir = $sortDir === 'asc' ? 'asc' : 'desc';
     }
 
+    /**
+     * @return string
+     * @throws \Exception
+     */
     public function getContent()
     {
         // if content is not null return the content
@@ -219,10 +223,13 @@ class HeadCell extends Cell
             return $this->content;
         }
 
+        $config = new TableGeneratorConfig();
+        $checkAllFunction = $config->getConfig('checkAllByCheckboxJSFunction');
+
         $title = $this->getTitle();
 
         $checkboxHtml = $this->isSelectable() === true ?
-            "<input type='checkbox' onclick=\"checkAllByCheckbox(this, '{$this->selectAllSelector}');\">" : '';
+            "<input type='checkbox' onclick=\"{$checkAllFunction}(this, '{$this->selectAllSelector}');\">" : '';
 
         // if head cell is not sortable only return title as the content
         if ($this->isSortable() === false) {
@@ -230,16 +237,13 @@ class HeadCell extends Cell
         }
 
         $alias = $this->getAlias();
-
         $sortBy = $this->getSortBy();
         $sortDir = $this->getSortDir();
 
-        if ($alias ===  $sortBy && $sortDir === 'asc') {
-            $newSortDir = 'desc';
-        } else {
-            $newSortDir = 'asc';
-        }
+        $newSortDir = ($alias ===  $sortBy && $sortDir === 'asc') ? 'desc' : 'asc';
 
-        return "{$checkboxHtml} <a style='cursor: pointer;' onclick='sort(\"{$sortBy}\", \"{$alias}\", \"{$sortDir}\", \"{$newSortDir}\");'>{$title}</a>";
+        $sortFunction = $config->getConfig('sorterJSFunction');
+
+        return "{$checkboxHtml} <a style='cursor: pointer;' onclick='{$sortFunction}(\"{$sortBy}\", \"{$alias}\", \"{$newSortDir}\");'>{$title}</a>";
     }
 }

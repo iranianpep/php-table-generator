@@ -24,6 +24,7 @@ echo $css;
 $cell1 = new HeadCell('Head Cell 1 Content');
 $cell1->setSortBy('first_head');
 $cell1->setSortDir('acs');
+$cell1->setSelectable(true);
 
 $cell2 = new HeadCell('Head Cell 2 Content');
 $cell2->setSortable(false);
