@@ -63,6 +63,11 @@ class HeadCell extends Cell
      */
     private $sortDir;
 
+    /**
+     * @var
+     */
+    private $sortDirKey;
+
     public function __construct($title = null, $alias = null, $content = null, $htmlspecialchars = false)
     {
         if ($title !== null) {
@@ -229,6 +234,22 @@ class HeadCell extends Cell
 
     /**
      * @return string
+     */
+    public function getSortDirKey()
+    {
+        return $this->sortDirKey;
+    }
+
+    /**
+     * @param string $sortDirKey
+     */
+    public function setSortDirKey($sortDirKey)
+    {
+        $this->sortDirKey = $sortDirKey;
+    }
+
+    /**
+     * @return string
      * @throws \Exception
      */
     public function getContent()
@@ -257,7 +278,8 @@ class HeadCell extends Cell
         $newSortDir = $this->getNewSortDir();
 
         $sortFunction = $config->getConfig('sorterJSFunction');
+        $sortDirKey = $this->getSortDirKey();
 
-        return "{$checkboxHtml} <a style='cursor: pointer;' onclick='{$sortFunction}(\"{$sortBy}\", \"{$alias}\", \"{$newSortDir}\");'>{$title}</a>";
+        return "{$checkboxHtml} <a style='cursor: pointer;' onclick='{$sortFunction}(\"{$sortBy}\", \"{$alias}\", \"{$sortDirKey}\", \"{$newSortDir}\");'>{$title}</a>";
     }
 }
