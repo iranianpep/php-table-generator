@@ -196,7 +196,7 @@ class HeadCell extends Cell
     /**
      * @param string $sortByKey
      */
-    public function setSortByKy($sortByKey)
+    public function setSortByKey($sortByKey)
     {
         $this->sortByKey = $sortByKey;
     }
