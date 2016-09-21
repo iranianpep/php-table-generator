@@ -56,7 +56,7 @@ class HeadCell extends Cell
     /**
      * @var
      */
-    private $sortBy;
+    private $sortByKey;
 
     /**
      * @var
@@ -188,17 +188,17 @@ class HeadCell extends Cell
     /**
      * @return string
      */
-    public function getSortBy()
+    public function getSortByKey()
     {
-        return $this->sortBy;
+        return $this->sortByKey;
     }
 
     /**
-     * @param string $sortBy
+     * @param string $sortByKey
      */
-    public function setSortBy($sortBy)
+    public function setSortByKy($sortByKey)
     {
-        $this->sortBy = $sortBy;
+        $this->sortByKey = $sortByKey;
     }
 
     /**
@@ -273,13 +273,13 @@ class HeadCell extends Cell
         }
 
         $alias = $this->getAlias();
-        $sortBy = $this->getSortBy();
+        $sortByKey = $this->getSortByKey();
         
         $newSortDir = $this->getNewSortDir();
 
         $sortFunction = $config->getConfig('sorterJSFunction');
         $sortDirKey = $this->getSortDirKey();
 
-        return "{$checkboxHtml} <a style='cursor: pointer;' onclick='{$sortFunction}(\"{$sortBy}\", \"{$alias}\", \"{$sortDirKey}\", \"{$newSortDir}\");'>{$title}</a>";
+        return "{$checkboxHtml} <a style='cursor: pointer;' onclick='{$sortFunction}(\"{$sortByKey}\", \"{$alias}\", \"{$sortDirKey}\", \"{$newSortDir}\");'>{$title}</a>";
     }
 }
