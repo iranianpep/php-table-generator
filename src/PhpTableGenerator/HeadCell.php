@@ -53,26 +53,6 @@ class HeadCell extends Cell
      */
     private $selectAllSelector;
 
-    /**
-     * @var
-     */
-    private $sortByKey;
-
-    /**
-     * @var
-     */
-    private $sortBy;
-
-    /**
-     * @var
-     */
-    private $sortDirKey;
-
-    /**
-     * @var
-     */
-    private $sortDir;
-
     public function __construct($title = null, $alias = null, $content = null, $htmlspecialchars = false)
     {
         if ($title !== null) {
@@ -191,82 +171,18 @@ class HeadCell extends Cell
     }
 
     /**
-     * @return string
-     */
-    public function getSortByKey()
-    {
-        return $this->sortByKey;
-    }
-
-    /**
-     * @param string $sortByKey
-     */
-    public function setSortByKey($sortByKey)
-    {
-        $this->sortByKey = $sortByKey;
-    }
-
-    /**
-     * @return string
-     */
-    public function getSortDir()
-    {
-        return $this->sortDir;
-    }
-
-    /**
-     * @param $sortDir
-     */
-    public function setSortDir($sortDir)
-    {
-        $this->sortDir = (strtolower($sortDir) === 'asc') ? 'asc' : 'desc';
-    }
-
-    /**
-     * @return string
-     */
-    public function getSortBy()
-    {
-        return $this->sortBy;
-    }
-
-    /**
-     * @param string $sortBy
-     */
-    public function setSortBy($sortBy)
-    {
-        $this->sortBy = $sortBy;
-    }
-
-    /**
      * According the current sorting direction, alias, and etc return
      * the next sorting direction
      *
      * @return string
      */
-    public function getNewSortDir()
+    public function getSortDir()
     {
         $alias = $this->getAlias();
-        //$sortBy = $this->getSortBy();
-        $sortDir = $this->getSortDir();
+        $listSortBy = $this->getListSortBy();
+        $listSortDir = $this->getListSortDir();
 
-        return ($alias ===  $sortBy && $sortDir === 'asc') ? 'desc' : 'asc';
-    }
-
-    /**
-     * @return string
-     */
-    public function getSortDirKey()
-    {
-        return $this->sortDirKey;
-    }
-
-    /**
-     * @param string $sortDirKey
-     */
-    public function setSortDirKey($sortDirKey)
-    {
-        $this->sortDirKey = $sortDirKey;
+        return ($alias ===  $listSortBy && $listSortDir === 'asc') ? 'desc' : 'asc';
     }
 
     /**
@@ -294,13 +210,13 @@ class HeadCell extends Cell
         }
 
         $alias = $this->getAlias();
-        $sortByKey = $this->getSortByKey();
+        $listSortByKey = $this->getListSortByKey();
         
-        $newSortDir = $this->getNewSortDir();
+        $sortDir = $this->getSortDir();
 
         $sortFunction = $config->getConfig('sorterJSFunction');
-        $sortDirKey = $this->getSortDirKey();
+        $listSortDirKey = $this->getListSortDirKey();
 
-        return "{$checkboxHtml} <a style='cursor: pointer;' onclick='{$sortFunction}(\"{$sortByKey}\", \"{$alias}\", \"{$sortDirKey}\", \"{$newSortDir}\");'>{$title}</a>";
+        return "{$checkboxHtml} <a style='cursor: pointer;' onclick='{$sortFunction}(\"{$listSortByKey}\", \"{$alias}\", \"{$listSortDirKey}\", \"{$sortDir}\");'>{$title}</a>";
     }
 }
