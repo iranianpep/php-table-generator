@@ -53,6 +53,26 @@ class HeadCell extends Cell
      */
     private $selectAllSelector;
 
+    /**
+     * @var
+     */
+    private $listSortByKey;
+
+    /**
+     * @var
+     */
+    private $listSortBy;
+
+    /**
+     * @var
+     */
+    private $listSortDirKey;
+
+    /**
+     * @var
+     */
+    private $listSortDir;
+
     public function __construct($title = null, $alias = null, $content = null, $htmlspecialchars = false)
     {
         if ($title !== null) {
@@ -183,6 +203,70 @@ class HeadCell extends Cell
         $listSortDir = $this->getListSortDir();
 
         return ($alias ===  $listSortBy && $listSortDir === 'asc') ? 'desc' : 'asc';
+    }
+
+    /**
+     * @return string
+     */
+    public function getListSortByKey()
+    {
+        return $this->listSortByKey;
+    }
+
+    /**
+     * @param string $listSortByKey
+     */
+    public function setListSortByKey($listSortByKey)
+    {
+        $this->listSortByKey = $listSortByKey;
+    }
+
+    /**
+     * @return string
+     */
+    public function getListSortBy()
+    {
+        return $this->listSortBy;
+    }
+
+    /**
+     * @param string $listSortBy
+     */
+    public function setListSortBy($listSortBy)
+    {
+        $this->listSortBy = $listSortBy;
+    }
+
+    /**
+     * @return string
+     */
+    public function getListSortDirKey()
+    {
+        return $this->listSortDirKey;
+    }
+
+    /**
+     * @param string $listSortDirKey
+     */
+    public function setListSortDirKey($listSortDirKey)
+    {
+        $this->listSortDirKey = $listSortDirKey;
+    }
+
+    /**
+     * @return string
+     */
+    public function getListSortDir()
+    {
+        return $this->listSortDir;
+    }
+
+    /**
+     * @param $listSortDir
+     */
+    public function setListSortDir($listSortDir)
+    {
+        $this->listSortDir = (strtolower($listSortDir) === 'asc') ? 'asc' : 'desc';
     }
 
     /**
