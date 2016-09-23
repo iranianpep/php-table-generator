@@ -62,7 +62,7 @@ class TableTest extends PHPUnit_Framework_TestCase
         $row3 = new Row(array($cell5, $cell6));
 
         $head = new Head($row1);
-        $head->addData(array('myData', 'myDataValue'));
+        $head->addData('myData', 'myDataValue');
 
         $body = new Body(array($row2, $row3));
 
@@ -94,7 +94,7 @@ class TableTest extends PHPUnit_Framework_TestCase
         $row3 = new Row(array($cell5, $cell6));
 
         $head = new Head($row1);
-        $head->addData(array('myData', 'myDataValue'));
+        $head->addData('myData', 'myDataValue');
 
         $body = new Body(array($row3));
 
@@ -140,7 +140,7 @@ class TableTest extends PHPUnit_Framework_TestCase
         $row3 = new Row(array($cell5, $cell6));
 
         $head = new Head($row1);
-        $head->addData(array('myData', 'myDataValue'));
+        $head->addData('myData', 'myDataValue');
 
         $body = new Body(array($row2, $row3));
 
@@ -183,7 +183,7 @@ class TableTest extends PHPUnit_Framework_TestCase
         $row4 = new Row(array($cell6));
 
         $head = new Head($row1);
-        $head->addData(array('myData', 'myDataValue'));
+        $head->addData('myData', 'myDataValue');
 
         $body = new Body(array($row2, $row3, $row4));
 
@@ -233,10 +233,10 @@ class TableTest extends PHPUnit_Framework_TestCase
 
         $caption = new Caption('This is caption content');
         $caption->class = 'captionClass';
-        $caption->addData(array('captionData', 'captionDataValue'));
+        $caption->addData('captionData', 'captionDataValue');
 
         $head = new Head($row1);
-        $head->addData(array('myData', 'myDataValue'));
+        $head->addData('myData', 'myDataValue');
 
         $body = new Body(array($row2, $row3, $row4));
 

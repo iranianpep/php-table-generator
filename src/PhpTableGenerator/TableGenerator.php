@@ -60,11 +60,12 @@ abstract class TableGenerator
     /**
      * add data to an element
      *
-     * @param array $data
+     * @param $key
+     * @param $value
      */
-    public function addData(array $data)
+    public function addData($key, $value)
     {
-        $this->data[] = $data;
+        $this->data[$key] = $value;
     }
 
     /**
@@ -93,10 +94,8 @@ abstract class TableGenerator
                     $allDataAttributes = '';
 
                     if (!empty($allData)) {
-                        foreach ($allData as $data) {
-                            if (isset($data[0]) && $data[1]) {
-                                $allDataAttributes .= " data-{$data[0]}={$data[1]}";
-                            }
+                        foreach ($allData as $key => $data) {
+                            $allDataAttributes .= " data-{$key}={$data}";
                         }
                     }
 
