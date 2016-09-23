@@ -61,12 +61,17 @@ class HeadCell extends Cell
     /**
      * @var
      */
-    private $sortDir;
+    private $sortBy;
 
     /**
      * @var
      */
     private $sortDirKey;
+
+    /**
+     * @var
+     */
+    private $sortDir;
 
     public function __construct($title = null, $alias = null, $content = null, $htmlspecialchars = false)
     {
@@ -218,6 +223,22 @@ class HeadCell extends Cell
     }
 
     /**
+     * @return string
+     */
+    public function getSortBy()
+    {
+        return $this->sortBy;
+    }
+
+    /**
+     * @param string $sortBy
+     */
+    public function setSortBy($sortBy)
+    {
+        $this->sortBy = $sortBy;
+    }
+
+    /**
      * According the current sorting direction, alias, and etc return
      * the next sorting direction
      *
@@ -226,7 +247,7 @@ class HeadCell extends Cell
     public function getNewSortDir()
     {
         $alias = $this->getAlias();
-        $sortBy = $this->getSortBy();
+        //$sortBy = $this->getSortBy();
         $sortDir = $this->getSortDir();
 
         return ($alias ===  $sortBy && $sortDir === 'asc') ? 'desc' : 'asc';
