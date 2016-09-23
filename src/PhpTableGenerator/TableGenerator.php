@@ -194,7 +194,7 @@ abstract class TableGenerator
     /**
      * @param string $listSortDirKey
      */
-    public function setSortDirKey($listSortDirKey)
+    public function setListSortDirKey($listSortDirKey)
     {
         $this->listSortDirKey = $listSortDirKey;
     }
