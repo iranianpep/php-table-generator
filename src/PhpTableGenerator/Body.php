@@ -48,21 +48,21 @@ class Body extends TableGenerator
     public function addRow(Row $row, $index = -1)
     {
         try {
-            if (is_numeric($index) && $row instanceof Row) {
-                $rows = $this->rows;
-
-                if ($index === -1) {
-                    // add to the end of the rows array
-                    $rows[] = $row;
-                } else {
-                    // insert the item in
-                    array_splice($rows, $index, 0, [$row]);
-                }
-
-                $this->rows = $rows;
-            } else {
+            if (!is_numeric($index) || !$row instanceof Row) {
                 throw new TableException('index in addRow() must be numeric');
             }
+
+            $rows = $this->rows;
+
+            if ($index === -1) {
+                // add to the end of the rows array
+                $rows[] = $row;
+            } else {
+                // insert the item in
+                array_splice($rows, $index, 0, [$row]);
+            }
+
+            $this->rows = $rows;
         } catch (TableException $e) {
             $e->displayError();
         }

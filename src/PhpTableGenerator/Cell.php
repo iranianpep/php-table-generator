@@ -62,16 +62,18 @@ class Cell extends TableGenerator
     /**
      * add rowspan to a cell.
      *
-     * @param $rowspan
+     * @param int $rowspan
      */
     public function addRowspan($rowspan)
     {
         try {
-            if (isset($rowspan) && (int) $rowspan > 0) {
-                $this->rowspan = (int) $rowspan;
-            } else {
-                throw new TableException('rowspan in addRowspan() must be numeric and greater than zero');
+            $rowspan = (int) $rowspan;
+
+            if (empty($rowspan)) {
+                throw new TableException('rowspan must be numeric and greater than zero');
             }
+
+            $this->rowspan = $rowspan;
         } catch (TableException $e) {
             $e->displayError();
         }
@@ -85,11 +87,13 @@ class Cell extends TableGenerator
     public function addColspan($colspan)
     {
         try {
-            if (isset($colspan) && (int) $colspan > 0) {
-                $this->colspan = (int) $colspan;
-            } else {
-                throw new TableException('colspan in addColspan() must be numeric and greater than zero');
+            $colspan = (int) $colspan;
+
+            if (empty($colspan)) {
+                throw new TableException('colspan must be numeric and greater than zero');
             }
+
+            $this->colspan = $colspan;
         } catch (TableException $e) {
             $e->displayError();
         }
