@@ -28,11 +28,11 @@ class TableGeneratorConfig
      */
     public function getConfig($key)
     {
-        if (array_key_exists($key, $this->configs)) {
-            return $this->configs[$key];
-        } else {
+        if (!array_key_exists($key, $this->configs)) {
             throw new \Exception("config: {$key} does not exist");
         }
+
+        return $this->configs[$key];
     }
 
     /**

@@ -48,21 +48,21 @@ class Row extends TableGenerator
     public function addCell(Cell $cell, $index = -1)
     {
         try {
-            if (is_numeric($index) && ($cell instanceof Cell)) {
-                $cells = $this->cells;
-
-                if ($index === -1) {
-                    // add to the end of the rows array
-                    $cells[] = $cell;
-                } else {
-                    // insert the item in
-                    array_splice($cells, $index, 0, [$cell]);
-                }
-
-                $this->cells = $cells;
-            } else {
+            if (!is_numeric($index) || !$cell instanceof Cell) {
                 throw new TableException('index in addCell() must be numeric');
             }
+
+            $cells = $this->cells;
+
+            if ($index === -1) {
+                // add to the end of the rows array
+                $cells[] = $cell;
+            } else {
+                // insert the item in
+                array_splice($cells, $index, 0, [$cell]);
+            }
+
+            $this->cells = $cells;
         } catch (TableException $e) {
             $e->displayError();
         }

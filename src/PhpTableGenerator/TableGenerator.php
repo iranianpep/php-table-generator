@@ -83,24 +83,26 @@ abstract class TableGenerator
      */
     public function getAttributeHtml($attribute)
     {
-        if (isset($this->$attribute) && $this->$attribute !== '') {
-            switch ($attribute) {
-                case 'data':
-                    $allData = $this->getData();
-                    $allDataAttributes = '';
-
-                    if (!empty($allData)) {
-                        foreach ($allData as $key => $data) {
-                            $allDataAttributes .= " data-{$key}={$data}";
-                        }
-                    }
-
-                    return $allDataAttributes;
-                default:
-                    return " {$attribute}='{$this->$attribute}'";
-            }
-        } else {
+        if (empty($this->$attribute)) {
             return '';
+        }
+
+        switch ($attribute) {
+            case 'data':
+                $allData = $this->getData();
+                $allDataAttributes = '';
+
+                if (!empty($allData)) {
+                    foreach ($allData as $key => $data) {
+                        $allDataAttributes .= " data-{$key}={$data}";
+                    }
+                }
+
+                return $allDataAttributes;
+                break;
+            default:
+                return " {$attribute}='{$this->$attribute}'";
+                break;
         }
     }
 
