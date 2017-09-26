@@ -5,10 +5,6 @@
 
 namespace TableGenerator;
 
-if (count(get_included_files()) === 1) {
-    exit('Direct access to not permitted.');
-}
-
 /**
  * Class TableException.
  */
