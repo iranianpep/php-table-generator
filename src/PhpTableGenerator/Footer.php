@@ -5,9 +5,6 @@
 
 namespace TableGenerator;
 
-/**
- * Class Footer.
- */
 class Footer extends TableGenerator
 {
     /**

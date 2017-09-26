@@ -5,9 +5,6 @@
 
 namespace TableGenerator;
 
-/**
- * Class Head.
- */
 class Head extends TableGenerator
 {
     /**

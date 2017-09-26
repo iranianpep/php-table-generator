@@ -109,13 +109,12 @@ class Cell extends TableGenerator
     public function addScope($scope)
     {
         try {
-            if (in_array($scope, $this->scopeWhiteList)) {
-                $this->scope = $scope;
-            } else {
+            if (!in_array($scope, $this->scopeWhiteList)) {
                 $scopeWhiteList = implode(', ', $this->scopeWhiteList);
-
                 throw new TableException("scope in addScope() must be one of these values: {$scopeWhiteList}");
             }
+
+            $this->scope = $scope;
         } catch (TableException $e) {
             $e->displayError();
         }
