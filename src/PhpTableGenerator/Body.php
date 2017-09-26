@@ -1,6 +1,6 @@
 <?php
 /**
- * Contains Body class
+ * Contains Body class.
  */
 
 namespace TableGenerator;
@@ -10,19 +10,19 @@ if (count(get_included_files()) === 1) {
 }
 
 /**
- * Class Body
+ * Class Body.
  */
 class Body extends TableGenerator
 {
     /**
-     * array of rows
+     * array of rows.
      *
-     * @var array $rows
+     * @var array
      */
     private $rows;
 
     /**
-     * initialize a body object
+     * initialize a body object.
      *
      * @param array $rows
      */
@@ -32,7 +32,7 @@ class Body extends TableGenerator
     }
 
     /**
-     * add rows to body
+     * add rows to body.
      *
      * @param array $rows
      */
@@ -42,7 +42,7 @@ class Body extends TableGenerator
     }
 
     /**
-     * add row to body
+     * add row to body.
      *
      * by default, row is added to the end of body. The position can be specified using index starting from 0
      *
@@ -60,7 +60,7 @@ class Body extends TableGenerator
                     $rows[] = $row;
                 } else {
                     // insert the item in
-                    array_splice($rows, $index, 0, array($row));
+                    array_splice($rows, $index, 0, [$row]);
                 }
 
                 $this->rows = $rows;
@@ -73,7 +73,7 @@ class Body extends TableGenerator
     }
 
     /**
-     * return rows for body
+     * return rows for body.
      *
      * @return array
      */
@@ -83,7 +83,7 @@ class Body extends TableGenerator
     }
 
     /**
-     * return html for body
+     * return html for body.
      *
      * @return string
      */

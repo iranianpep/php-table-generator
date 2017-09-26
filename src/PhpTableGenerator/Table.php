@@ -1,6 +1,6 @@
 <?php
 /**
- * Contains Table class
+ * Contains Table class.
  */
 
 namespace TableGenerator;
@@ -10,41 +10,42 @@ if (count(get_included_files()) === 1) {
 }
 
 /**
- * Class Table
+ * Class Table.
  */
 class Table extends TableGenerator
 {
     /**
-     * table caption
+     * table caption.
      *
-     * @var Caption $caption
+     * @var Caption
      */
     private $caption;
 
     /**
-     * table head
+     * table head.
      *
-     * @var Head $head
+     * @var Head
      */
     private $head;
 
     /**
-     * table body
+     * table body.
      *
-     * @var Body $body
+     * @var Body
      */
     private $body;
 
     /**
-     * table footer
+     * table footer.
      *
-     * @var Footer $footer
+     * @var Footer
      */
     private $footer;
 
     //\\//\\//\\//\\//\\ Beginning of Setters //\\//\\//\\//\\//\\
+
     /**
-     * add caption to a table
+     * add caption to a table.
      *
      * @param Caption $caption
      */
@@ -54,7 +55,7 @@ class Table extends TableGenerator
     }
 
     /**
-     * add head to a table
+     * add head to a table.
      *
      * @param Head $head
      */
@@ -64,7 +65,7 @@ class Table extends TableGenerator
     }
 
     /**
-     * add body to a table
+     * add body to a table.
      *
      * @param Body $body
      */
@@ -74,7 +75,7 @@ class Table extends TableGenerator
     }
 
     /**
-     * add footer to a table
+     * add footer to a table.
      *
      * @param Footer $footer
      */
@@ -82,11 +83,13 @@ class Table extends TableGenerator
     {
         $this->footer = $footer;
     }
+
     //\\//\\//\\//\\//\\ End of Setters //\\//\\//\\//\\//\\
 
     //\\//\\//\\//\\//\\ Beginning of Getters //\\//\\//\\//\\//\\
+
     /**
-     * get caption for a table
+     * get caption for a table.
      *
      * @return mixed
      */
@@ -96,7 +99,7 @@ class Table extends TableGenerator
     }
 
     /**
-     * get head for a table
+     * get head for a table.
      *
      * @return mixed
      */
@@ -106,7 +109,7 @@ class Table extends TableGenerator
     }
 
     /**
-     * get body for a table
+     * get body for a table.
      *
      * @return mixed
      */
@@ -116,7 +119,7 @@ class Table extends TableGenerator
     }
 
     /**
-     * get footer for a table
+     * get footer for a table.
      *
      * @return mixed
      */
@@ -124,11 +127,13 @@ class Table extends TableGenerator
     {
         return $this->footer;
     }
+
     //\\//\\//\\//\\//\\ End of Getters //\\//\\//\\//\\//\\
 
     //\\//\\//\\//\\//\\ Beginning of Utility //\\//\\//\\//\\//\\
+
     /**
-     * get html for a table
+     * get html for a table.
      *
      * @return string
      */
@@ -176,11 +181,12 @@ class Table extends TableGenerator
     }
 
     /**
-     * print table
+     * print table.
      */
     public function display()
     {
         echo $this->getHtml();
     }
+
     //\\//\\//\\//\\//\\ End of Utility //\\//\\//\\//\\//\\
 }

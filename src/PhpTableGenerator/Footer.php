@@ -1,6 +1,6 @@
 <?php
 /**
- * Contains Footer class
+ * Contains Footer class.
  */
 
 namespace TableGenerator;
@@ -10,19 +10,19 @@ if (count(get_included_files()) === 1) {
 }
 
 /**
- * Class Footer
+ * Class Footer.
  */
 class Footer extends TableGenerator
 {
     /**
-     * footer row
+     * footer row.
      *
-     * @var Row $row
+     * @var Row
      */
     private $row;
 
     /**
-     * initialize a footer object
+     * initialize a footer object.
      *
      * @param Row $row
      */
@@ -32,10 +32,9 @@ class Footer extends TableGenerator
     }
 
     /**
-     * add row to a footer
+     * add row to a footer.
      *
      * @param Row $row
-     *
      */
     public function addRow(Row $row)
     {
@@ -43,7 +42,7 @@ class Footer extends TableGenerator
     }
 
     /**
-     * return row for a footer
+     * return row for a footer.
      *
      * @return Row
      */
@@ -53,7 +52,7 @@ class Footer extends TableGenerator
     }
 
     /**
-     * return html for a footer
+     * return html for a footer.
      *
      * @return string
      */

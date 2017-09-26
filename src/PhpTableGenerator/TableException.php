@@ -1,6 +1,6 @@
 <?php
 /**
- * Contains TableException class
+ * Contains TableException class.
  */
 
 namespace TableGenerator;
@@ -10,15 +10,15 @@ if (count(get_included_files()) === 1) {
 }
 
 /**
- * Class TableException
+ * Class TableException.
  */
 class TableException extends \Exception
 {
     /**
-     * initialize a TableException object
+     * initialize a TableException object.
      *
-     * @param string    $message
-     * @param int       $code
+     * @param string     $message
+     * @param int        $code
      * @param \Exception $previous
      */
     public function __construct($message, $code = 0, \Exception $previous = null)
@@ -27,13 +27,13 @@ class TableException extends \Exception
     }
 
     /**
-     * print errors
+     * print errors.
      */
     public function displayError()
     {
-        echo '<span style="color: red;">Error: <b>' . $this->getMessage() . '</b></span><br>';
-        echo 'File: ' . $this->getFile() . '<br>';
-        echo 'Line: ' . $this->getLine() . '<br>';
-        echo 'Trace: ' . $this->getTraceAsString() . '<br><br>';
+        echo '<span style="color: red;">Error: <b>'.$this->getMessage().'</b></span><br>';
+        echo 'File: '.$this->getFile().'<br>';
+        echo 'Line: '.$this->getLine().'<br>';
+        echo 'Trace: '.$this->getTraceAsString().'<br><br>';
     }
 }

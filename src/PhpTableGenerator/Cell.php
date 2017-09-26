@@ -1,6 +1,6 @@
 <?php
 /**
- * Contains Cell class
+ * Contains Cell class.
  */
 
 namespace TableGenerator;
@@ -10,47 +10,47 @@ if (count(get_included_files()) === 1) {
 }
 
 /**
- * Class Cell
+ * Class Cell.
  */
 class Cell extends TableGenerator
 {
     /**
-     * cell content
+     * cell content.
      *
-     * @var string $content
+     * @var string
      */
     public $content;
 
     /**
-     * cell rowspan
+     * cell rowspan.
      *
-     * @var $rowspan
+     * @var
      */
     private $rowspan;
 
     /**
-     * cell colspan
+     * cell colspan.
      *
-     * @var $colspan
+     * @var
      */
     private $colspan;
 
     /**
-     * cell scope
+     * cell scope.
      *
-     * @var $scope
+     * @var
      */
     private $scope;
 
     /**
-     * array of possible scope values
+     * array of possible scope values.
      *
-     * @var array $scopeWhiteList
+     * @var array
      */
     private $scopeWhiteList;
 
     /**
-     * initialize a cell object
+     * initialize a cell object.
      *
      * @param string $content
      * @param bool   $htmlspecialchars
@@ -64,7 +64,7 @@ class Cell extends TableGenerator
     }
 
     /**
-     * add rowspan to a cell
+     * add rowspan to a cell.
      *
      * @param $rowspan
      */
@@ -82,7 +82,7 @@ class Cell extends TableGenerator
     }
 
     /**
-     * add colspan to a cell
+     * add colspan to a cell.
      *
      * @param $colspan
      */
@@ -100,7 +100,7 @@ class Cell extends TableGenerator
     }
 
     /**
-     * add scope to a cell
+     * add scope to a cell.
      *
      * scope can only be 'col', 'row', 'colgroup' or 'rowgroup'
      *
@@ -113,6 +113,7 @@ class Cell extends TableGenerator
                 $this->scope = $scope;
             } else {
                 $scopeWhiteList = implode(', ', $this->scopeWhiteList);
+
                 throw new TableException("scope in addScope() must be one of these values: {$scopeWhiteList}");
             }
         } catch (TableException $e) {
@@ -121,7 +122,7 @@ class Cell extends TableGenerator
     }
 
     /**
-     * return scope for a cell
+     * return scope for a cell.
      *
      * @return mixed
      */
@@ -131,7 +132,7 @@ class Cell extends TableGenerator
     }
 
     /**
-     * return rowspan for a cell
+     * return rowspan for a cell.
      *
      * @return int
      */
@@ -141,7 +142,7 @@ class Cell extends TableGenerator
     }
 
     /**
-     * return colspan for a cell
+     * return colspan for a cell.
      *
      * @return int
      */
@@ -167,7 +168,7 @@ class Cell extends TableGenerator
     }
 
     /**
-     * Alias for getContent()
+     * Alias for getContent().
      */
     public function getHtml()
     {

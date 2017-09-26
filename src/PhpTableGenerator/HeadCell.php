@@ -1,6 +1,6 @@
 <?php
 /**
- * Contains Head Cell class
+ * Contains Head Cell class.
  */
 
 namespace TableGenerator;
@@ -10,41 +10,41 @@ if (count(get_included_files()) === 1) {
 }
 
 /**
- * Class Cell
+ * Class Cell.
  */
 class HeadCell extends Cell
 {
     /**
-     * head cell title
+     * head cell title.
      *
-     * @var string $title
+     * @var string
      */
     private $title;
 
     /**
-     * head cell alias
+     * head cell alias.
      *
-     * @var string $alias
+     * @var string
      */
     private $alias;
 
     /**
-     * @var boolean $sortable
+     * @var bool
      */
     private $sortable;
 
     /**
-     * @var boolean $searchable
+     * @var bool
      */
     private $searchable;
 
     /**
-     * @var boolean $selectable
+     * @var bool
      */
     private $selectable;
 
     /**
-     * @var string $searchPattern
+     * @var string
      */
     private $searchPattern;
 
@@ -124,7 +124,7 @@ class HeadCell extends Cell
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isSortable()
     {
@@ -140,7 +140,7 @@ class HeadCell extends Cell
     }
 
     /**
-     * @param boolean $sortable
+     * @param bool $sortable
      */
     public function setSortable($sortable)
     {
@@ -148,7 +148,7 @@ class HeadCell extends Cell
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isSearchable()
     {
@@ -173,7 +173,7 @@ class HeadCell extends Cell
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isSelectable()
     {
@@ -192,7 +192,7 @@ class HeadCell extends Cell
 
     /**
      * According the current sorting direction, alias, and etc return
-     * the next sorting direction
+     * the next sorting direction.
      *
      * @return string
      */
@@ -202,7 +202,7 @@ class HeadCell extends Cell
         $listSortBy = $this->getListSortBy();
         $listSortDir = $this->getListSortDir();
 
-        return ($alias ===  $listSortBy && $listSortDir === 'asc') ? 'desc' : 'asc';
+        return ($alias === $listSortBy && $listSortDir === 'asc') ? 'desc' : 'asc';
     }
 
     /**
@@ -270,8 +270,9 @@ class HeadCell extends Cell
     }
 
     /**
-     * @return string
      * @throws \Exception
+     *
+     * @return string
      */
     public function getContent()
     {
@@ -290,12 +291,12 @@ class HeadCell extends Cell
 
         // if head cell is not sortable only return title as the content
         if ($this->isSortable() === false) {
-            return $checkboxHtml . ' ' . $title;
+            return $checkboxHtml.' '.$title;
         }
 
         $alias = $this->getAlias();
         $listSortByKey = $this->getListSortByKey();
-        
+
         $sortDir = $this->getSortDir();
 
         $sortFunction = $config->getConfig('sorterJSFunction');
