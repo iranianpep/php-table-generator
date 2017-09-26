@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 class TableTest extends TestCase
 {
     /**
-     * Test getHtml
+     * Test getHtml.
      */
     public function testSimpleTable()
     {
@@ -35,7 +35,7 @@ class TableTest extends TestCase
     }
 
     /**
-     * Test getHtml
+     * Test getHtml.
      */
     public function testSimpleTableAddCell()
     {
@@ -77,7 +77,7 @@ class TableTest extends TestCase
     }
 
     /**
-     * Test getHtml
+     * Test getHtml.
      */
     public function testSimpleTableAddRow()
     {
@@ -120,7 +120,7 @@ class TableTest extends TestCase
     }
 
     /**
-     * Test getHtml
+     * Test getHtml.
      */
     public function testSimpleTableAttributes()
     {
@@ -161,7 +161,7 @@ class TableTest extends TestCase
     }
 
     /**
-     * Test getHtml
+     * Test getHtml.
      */
     public function testSimpleTableRowspanColspan()
     {
@@ -207,7 +207,7 @@ class TableTest extends TestCase
     }
 
     /**
-     * Test getHtml
+     * Test getHtml.
      */
     public function testTableComplete()
     {
