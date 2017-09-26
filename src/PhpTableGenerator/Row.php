@@ -1,6 +1,6 @@
 <?php
 /**
- * Contains Row class
+ * Contains Row class.
  */
 
 namespace TableGenerator;
@@ -10,29 +10,29 @@ if (count(get_included_files()) === 1) {
 }
 
 /**
- * Class Row
+ * Class Row.
  */
 class Row extends TableGenerator
 {
     /**
-     * array of row cells
+     * array of row cells.
      *
-     * @var array $cells
+     * @var array
      */
     private $cells;
 
     /**
-     * initialize a row object
+     * initialize a row object.
      *
      * @param array $cells
      */
-    public function __construct(array $cells = array())
+    public function __construct(array $cells = [])
     {
         $this->addCells($cells);
     }
 
     /**
-     * add cells to a row
+     * add cells to a row.
      *
      * @param array $cells
      */
@@ -42,7 +42,7 @@ class Row extends TableGenerator
     }
 
     /**
-     * add a cell to a row
+     * add a cell to a row.
      *
      * by default, cell is added to the end of row. The position can be specified using index starting from 0
      *
@@ -58,14 +58,12 @@ class Row extends TableGenerator
                 if ($index === -1) {
                     // add to the end of the rows array
                     $cells[] = $cell;
-
                 } else {
                     // insert the item in
-                    array_splice($cells, $index, 0, array($cell));
+                    array_splice($cells, $index, 0, [$cell]);
                 }
 
                 $this->cells = $cells;
-
             } else {
                 throw new TableException('index in addCell() must be numeric');
             }
@@ -75,7 +73,7 @@ class Row extends TableGenerator
     }
 
     /**
-     * return cells for a row
+     * return cells for a row.
      *
      * @return mixed
      */
@@ -85,7 +83,7 @@ class Row extends TableGenerator
     }
 
     /**
-     * return html for a row
+     * return html for a row.
      *
      * @return string
      */

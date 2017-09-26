@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Contains TableGenerator class
+ * Contains TableGenerator class.
  */
 
 namespace TableGenerator;
@@ -11,40 +11,40 @@ if (count(get_included_files()) === 1) {
 }
 
 /**
- * Class TableGenerator
+ * Class TableGenerator.
  */
 abstract class TableGenerator
 {
     /**
-     * css class
+     * css class.
      *
-     * @var string $class
+     * @var string
      */
     public $class;
 
     /**
-     * css id
+     * css id.
      *
-     * @var string $id
+     * @var string
      */
     public $id;
 
     /**
-     * css styling
+     * css styling.
      *
-     * @var string $style
+     * @var string
      */
     public $style;
 
     /**
-     * data
+     * data.
      *
-     * @var array $data
+     * @var array
      */
     private $data;
 
     /**
-     * initialize a TableGenerator object
+     * initialize a TableGenerator object.
      *
      * @param string $class
      * @param string $id
@@ -58,7 +58,7 @@ abstract class TableGenerator
     }
 
     /**
-     * add data to an element
+     * add data to an element.
      *
      * @param $key
      * @param $value
@@ -69,7 +69,7 @@ abstract class TableGenerator
     }
 
     /**
-     * get data from an element
+     * get data from an element.
      *
      * @return mixed
      */
@@ -79,7 +79,7 @@ abstract class TableGenerator
     }
 
     /**
-     * get html for an attribute assigned to an element
+     * get html for an attribute assigned to an element.
      *
      * @param $attribute
      *
@@ -109,7 +109,7 @@ abstract class TableGenerator
     }
 
     /**
-     * get html for all the attributes assigned to a an element
+     * get html for all the attributes assigned to a an element.
      *
      * @return string
      */

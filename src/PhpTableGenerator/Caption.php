@@ -1,6 +1,6 @@
 <?php
 /**
- * Contains Caption class
+ * Contains Caption class.
  */
 
 namespace TableGenerator;
@@ -10,19 +10,19 @@ if (count(get_included_files()) === 1) {
 }
 
 /**
- * Class Caption
+ * Class Caption.
  */
 class Caption extends TableGenerator
 {
     /**
-     * content
+     * content.
      *
-     * @var string $content
+     * @var string
      */
     public $content;
 
     /**
-     * initialize a caption object
+     * initialize a caption object.
      *
      * @param string $content
      */
@@ -32,7 +32,7 @@ class Caption extends TableGenerator
     }
 
     /**
-     * return html for caption
+     * return html for caption.
      *
      * @return string
      */

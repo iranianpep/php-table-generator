@@ -1,6 +1,6 @@
 <?php
 /**
- * Contains Head class
+ * Contains Head class.
  */
 
 namespace TableGenerator;
@@ -10,19 +10,19 @@ if (count(get_included_files()) === 1) {
 }
 
 /**
- * Class Head
+ * Class Head.
  */
 class Head extends TableGenerator
 {
     /**
-     * head row
+     * head row.
      *
-     * @var Row $row
+     * @var Row
      */
     private $row;
 
     /**
-     * initialize a head object
+     * initialize a head object.
      *
      * @param Row $row
      */
@@ -32,7 +32,7 @@ class Head extends TableGenerator
     }
 
     /**
-     * add row to a head
+     * add row to a head.
      *
      * @param Row $row
      */
@@ -42,7 +42,7 @@ class Head extends TableGenerator
     }
 
     /**
-     * return row for a head
+     * return row for a head.
      *
      * @return Row
      */
@@ -52,7 +52,7 @@ class Head extends TableGenerator
     }
 
     /**
-     * return html for a head
+     * return html for a head.
      *
      * @return string
      */

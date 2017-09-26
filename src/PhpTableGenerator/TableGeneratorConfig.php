@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Contains TableGeneratorConfig class
+ * Contains TableGeneratorConfig class.
  */
 
 namespace TableGenerator;
@@ -11,7 +11,7 @@ if (count(get_included_files()) === 1) {
 }
 
 /**
- * Class TableGeneratorConfig
+ * Class TableGeneratorConfig.
  */
 class TableGeneratorConfig
 {
@@ -19,14 +19,16 @@ class TableGeneratorConfig
      * @var array
      */
     private $configs = [
-        'sorterJSFunction' => 'sort',
-        'checkAllByCheckboxJSFunction' => 'checkAllByCheckbox'
+        'sorterJSFunction'             => 'sort',
+        'checkAllByCheckboxJSFunction' => 'checkAllByCheckbox',
     ];
 
     /**
      * @param $key
-     * @return mixed
+     *
      * @throws \Exception
+     *
+     * @return mixed
      */
     public function getConfig($key)
     {
