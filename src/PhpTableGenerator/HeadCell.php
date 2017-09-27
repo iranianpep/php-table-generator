@@ -298,6 +298,9 @@ class HeadCell extends Cell
         $sortFunction = $config->getConfig('sorterJSFunction');
         $listSortDirKey = $this->getListSortDirKey();
 
-        return "{$checkboxHtml} <a style='cursor: pointer;' onclick='{$sortFunction}(\"{$listSortByKey}\", \"{$alias}\", \"{$listSortDirKey}\", \"{$sortDir}\");'>{$title}</a>";
+        return "{$checkboxHtml}
+ <a style='cursor: pointer;' 
+ onclick='{$sortFunction}(\"{$listSortByKey}\", \"{$alias}\", \"{$listSortDirKey}\", \"{$sortDir}\");'>
+{$title}</a>";
     }
 }

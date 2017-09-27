@@ -31,7 +31,14 @@ class TableTest extends TestCase
 
         // print table. Don't forget this one!
         $html = $table->getHtml();
-        $this->assertEquals('<table><thead><tr><td>Cell 1 Content</td><td>Cell 2 Content</td></tr></thead><tbody><tr><td>Cell 3 Content</td><td>Cell 4 Content</td></tr><tr><td>Cell 5 Content</td><td>Cell 6 Content</td></tr></tbody></table>', $html);
+
+        $expectedHtml = '<table>';
+        $expectedHtml .= '<thead><tr><td>Cell 1 Content</td><td>Cell 2 Content</td></tr></thead>';
+        $expectedHtml .= '<tbody><tr><td>Cell 3 Content</td><td>Cell 4 Content</td></tr>';
+        $expectedHtml .= '<tr><td>Cell 5 Content</td><td>Cell 6 Content</td></tr></tbody>';
+        $expectedHtml .= '</table>';
+
+        $this->assertEquals($expectedHtml, $html);
     }
 
     /**
@@ -73,7 +80,10 @@ class TableTest extends TestCase
         $table->addBody($body);
 
         $html = $table->getHtml();
-        $this->assertEquals("<table><thead data-myData=myDataValue><tr class='firstRow'><td scope = \"col\">Cell 1 Content</td><td scope = \"col\">Cell 2 Content</td></tr></thead><tbody><tr><td scope = \"col\">Cell 2 Content</td><td>Cell 3 Content</td></tr><tr><td id='fifthCell'>Cell 5 Content</td><td>Cell 6 Content</td></tr></tbody></table>", $html);
+
+        $expectedHtml = "<table><thead data-myData=myDataValue><tr class='firstRow'><td scope = \"col\">Cell 1 Content</td><td scope = \"col\">Cell 2 Content</td></tr></thead><tbody><tr><td scope = \"col\">Cell 2 Content</td><td>Cell 3 Content</td></tr><tr><td id='fifthCell'>Cell 5 Content</td><td>Cell 6 Content</td></tr></tbody></table>";
+
+        $this->assertEquals($expectedHtml, $html);
     }
 
     /**
