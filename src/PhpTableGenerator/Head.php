@@ -8,8 +8,6 @@ namespace TableGenerator;
 class Head extends TableGenerator
 {
     /**
-     * head row.
-     *
      * @var Row
      */
     private $row;

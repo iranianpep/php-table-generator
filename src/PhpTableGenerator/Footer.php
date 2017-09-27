@@ -8,8 +8,6 @@ namespace TableGenerator;
 class Footer extends TableGenerator
 {
     /**
-     * footer row.
-     *
      * @var Row
      */
     private $row;

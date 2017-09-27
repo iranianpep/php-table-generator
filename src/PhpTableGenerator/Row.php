@@ -48,8 +48,12 @@ class Row extends TableGenerator
     public function addCell(Cell $cell, $index = -1)
     {
         try {
-            if (!is_numeric($index) || !$cell instanceof Cell) {
+            if (!is_numeric($index)) {
                 throw new TableException('index in addCell() must be numeric');
+            }
+
+            if (!$cell instanceof Cell) {
+                throw new TableException('invalid cell');
             }
 
             $cells = $this->cells;

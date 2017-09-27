@@ -48,8 +48,12 @@ class Body extends TableGenerator
     public function addRow(Row $row, $index = -1)
     {
         try {
-            if (!is_numeric($index) || !$row instanceof Row) {
+            if (!is_numeric($index)) {
                 throw new TableException('index in addRow() must be numeric');
+            }
+
+            if (!$row instanceof Row) {
+                throw new TableException('invalid row');
             }
 
             $rows = $this->rows;
