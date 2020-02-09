@@ -1,21 +1,30 @@
+env:
+  global:
+    - coverage=false
+    - CC_TEST_REPORTER_ID=fb5f645c9ebea514d16adad90985a73318210543d1531e4e3831e42dffb6ce1f
 
 language: php
 
 matrix:
   include:
   - php: 7.0
+    env: coverage=true
   - php: 7.1
+  - php: 7.2
+  - php: 7.3
+  - php: 7.4
 
 sudo: false
 
-addons:
-  code_climate:
-    repo_token: fb5f645c9ebea514d16adad90985a73318210543d1531e4e3831e42dffb6ce1f
-
 install:
-    - composer install
+  - composer install
 
-script: phpunit --coverage-clover build/logs/clover.xml --configuration phpunit.xml
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - if [[ $coverage = 'true' ]]; then ./cc-test-reporter before-build; fi
 
-after_success:
-- vendor/bin/test-reporter
+script: vendor/bin/phpunit --coverage-clover build/logs/clover.xml --configuration phpunit.xml
+
+after_script:
+  - if [[ $coverage = 'true' ]]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi

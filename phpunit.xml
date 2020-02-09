@@ -2,13 +2,13 @@
 <phpunit bootstrap="tests/bootstrap.php" backupGlobals="false" verbose="true" debug="true" processIsolation="true">
     <testsuites>
         <testsuite name="PhpTableGenerator Test Suite">
-            <directory suffix="Test.php">tests/PhpBaseProject/</directory>
+            <directory suffix="Test.php">tests/PhpTableGenerator/</directory>
         </testsuite>
     </testsuites>
 
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">src/PhpBaseProject/</directory>
+            <directory suffix=".php">src/PhpTableGenerator/</directory>
         </whitelist>
     </filter>
 
